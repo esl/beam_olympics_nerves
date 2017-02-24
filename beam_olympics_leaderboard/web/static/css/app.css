@@ -1,0 +1,54 @@
+/* This file is for your main application css. */
+
+body {
+  background-image: url("https://camo.githubusercontent.com/477bf1adc67645fbf143f40e1ea597035f1c3aca/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f75706c6f6164732e686970636861742e636f6d2f31353032352f35353930302f4c657163626669517a434e34384c622f4265616d2532304f6c796d70696373253230626c61636b2e706e67");
+  background-color: #FAF6E8;
+  background-repeat: no-repeat;
+}
+
+.olympics-container {
+  margin-left: 600px;
+  padding-right: 20px;
+  max-width: 750px;
+}
+
+.page-header span {
+  font-size: 4rem;
+  display: inline-block;
+  transform-origin: left top 0;
+  position: relative;
+}
+
+.page-header span:nth-child(5n+1) {
+  color: #e36b23;
+  text-shadow: #9b4d1f -1px 1px 1px;
+  transform: rotate(-6deg);
+}
+
+.page-header span:nth-child(5n+2) {
+  color: #e6c92e;
+  text-shadow: #9c8b26 -1px 1px 1px;
+  top: 2px;
+}
+
+.page-header span:nth-child(5n+3) {
+  color: #5da028;
+  text-shadow: #427021 -1px 1px 1px;
+  transform: rotate(4deg);
+}
+
+.page-header span:nth-child(5n+4) {
+  color: #4584be;
+  text-shadow: #2f597f -1px 1px 1px;
+  top: 4px;
+}
+
+.page-header span:nth-child(5n+5) {
+  color: #7073cf;
+  text-shadow: #4a4d88 -1px 1px 1px;
+  transform: rotate(-4deg);
+}
+
+.username {
+  font-weight: bold;
+}
