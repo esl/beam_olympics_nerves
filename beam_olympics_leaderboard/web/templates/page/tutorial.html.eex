@@ -1,0 +1,41 @@
+<div class="tutorial">
+<div class="funky-text">
+  <h1><%= funky_text("How To Play") %></h1>
+</div>
+
+<p>To start playing, connect to the server node "<%= @server %>" from an IEx session. When starting the shell
+remember to provide a full name which includes your IP address.</p>
+
+<pre>$ iex --name ju@192.168.0.10 --cookie beam
+iex> Node.connect :"<%= @server %>"
+true</pre>
+
+<p>Now you can signup your user by running</p>
+
+<pre>iex> GenServer.call({:bo_server, :"<%= @server %>"}, {:signup, "ju"}) </pre>
+
+<p>You can fetch the current task with</p>
+
+<pre>iex> GenServer.call({:bo_server, :"<%= @server %>"}, {:task, "ju"}) </pre>
+
+<p>When you're done, you can submit your solution</p>
+
+<pre>iex> GenServer.call({:bo_server, :"<%= @server %>"}, {:submit, "ju", fn() -> :ok end})</pre>
+
+<p>If you get stuck and want to skip the current task</p>
+
+<pre>iex> GenServer.call({:bo_server, :"<%= @server %>"}, {:skip, "ju"}) </pre>
+
+<p>And if you want to check your current score</p>
+
+<pre>iex> GenServer.call({:bo_server, :"<%= @server %>"}, {:score, "ju"}) </pre>
+
+<div class="funky-text">
+  <h1><%= funky_text("Rules") %></h1>
+</div>
+
+<ul>
+  <li>To prevent fraud, you must always post solutions from the node in which they signed up.</li>
+  <li>There is no undo, if you skipped a task you can't choose to submit a solution for it later.</li>
+  <li>Each task has its own score. If you solve a task correctly, you get full points. If you skip a task, you lose half of that task points.</li>
+</div>

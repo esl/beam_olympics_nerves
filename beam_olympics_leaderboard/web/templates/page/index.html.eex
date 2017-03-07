@@ -1,28 +1,47 @@
-<div class="page-header">
-  <h1><span class="char1">B</span><span class="char2">e</span><span class="char3">a</span><span class="char4">m</span><span class="char5"> </span><span class="char6">O</span><span class="char7">l</span><span class="char8">y</span><span class="char9">m</span><span class="char10">p</span><span class="char11">i</span><span class="char12">c</span><span class="char13">s</span><span class="char14"> </span><span class="char15">L</span><span class="char16">e</span><span class="char17">a</span><span class="char18">d</span><span class="char19">e</span><span class="char20">r</span><span class="char21">b</span><span class="char22">o</span><span class="char23">a</span><span class="char24">r</span><span class="char25">d</span></h1>
+<div class="leaderboard">
+  <div class="leaderboard-left">
+    <img src="<%= static_path(@conn, "/images/bo.png") %>">
+    <div>
+      <a href="/how-to-play">How to Play</a>
+    </div>
+  </div>
+
+  <div class="leaderboard-right">
+    <div class="funky-text">
+      <h1><%= funky_text("Beam Olympics Leaderboard") %></h1>
+    </div>
+
+    <div>
+      <%= if Enum.empty?(@users) do %>
+        <p>No one has registered yet :(</p>
+      <% else %>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Solved</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= for user <- @users do %>
+              <tr>
+                <td class="username"><%= user.name %></td>
+                <td><%= user.done %></td>
+                <td><%= user.score %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<div>
-  <%= if Enum.empty?(@users) do %>
-    <p>No one has registered yet :(</p>
-  <% else %>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Username</th>
-          <th>Solved</th>
-          <th>Score</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= for user <- @users do %>
-          <tr>
-            <td class="username"><%= user.name %></td>
-            <td><%= user.done %></td>
-            <td><%= user.score %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
-</div>
+<script type="text/javascript">
+  var timeout = setTimeout("location.reload(true);", 10000);
+  function resetTimeout() {
+    clearTimeout(timeout);
+    timeout = setTimeout("location.reload(true);", 10000);
+  }
+</script>

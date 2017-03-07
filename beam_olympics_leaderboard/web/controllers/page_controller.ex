@@ -5,6 +5,11 @@ defmodule BeamOlympicsLeaderboard.PageController do
     render conn, "index.html", users: get_users()
   end
 
+  def tutorial(conn, _params) do
+    server = get_server()
+    render conn, "tutorial.html", server: server
+  end
+
   defp get_users do
     try do
       stats = GenServer.call({:bo_server, get_server()}, :stats)
