@@ -21,3 +21,12 @@ Getting Beam Olympics to run on a Raspberry Pi 3 through Nerves. Phoenix leaderb
 ## Preview
 
 ![preview.png](images/preview.png)
+
+![tutorial.png](images/tutorial.png)
+
+## Uploading HTML and RTF instructions to S3
+
+1. Go into the `beam_olympics_leaderboard` folder
+2. Copy `.envrc.example` to `.envrc`, set the env variables and source it
+3. Install `pandoc`
+4. Run `mix s3_upload`
