@@ -23,7 +23,7 @@ config :logger, :console,
 import_config "#{Mix.env}.exs"
 
 config :beam_olympics_leaderboard,
-  server: :"olympics@192.168.0.101",
+  server: :"olympics@192.168.0.100",
   s3_bucket: System.get_env("AWS_S3_BUCKET")
 
 config :ex_aws,

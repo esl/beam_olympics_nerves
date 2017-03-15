@@ -11,7 +11,7 @@ Getting Beam Olympics to run on a Raspberry Pi 3 through Nerves. Phoenix leaderb
   - Install nerves following [this tutorial](https://hexdocs.pm/nerves/getting-started.html)
   - Get yourself a microSD card
   - Run `mix deps.get && mix firmware && mix firmware.burn`
-  - Configure the router to assign the `192.168.0.101` address to the raspberry
+  - Configure the router to assign the `192.168.0.100` address to the raspberry
   - Insert SD into raspberry and boot
 5. Go into the `beam_olympics_leaderboard` folder and:
   - Connect to the same WiFi router

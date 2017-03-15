@@ -1,5 +1,5 @@
 ## Start the Elixir shell
--name olympics@192.168.0.101
+-name olympics@192.168.0.100
 -setcookie beam
 -noshell
 -user Elixir.IEx.CLI
