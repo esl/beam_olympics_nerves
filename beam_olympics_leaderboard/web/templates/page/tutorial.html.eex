@@ -3,35 +3,49 @@
   <h1><%= funky_text("How To Play") %></h1>
 </div>
 
-<p>First of all connect to the <strong>BeamChallenge</strong> WiFi network (password <strong>ilovebeam</strong>).</p>
+<!-- <p>First of all connect to the <strong>BeamChallenge</strong> WiFi network (password <strong>ilovebeam</strong>).</p> -->
 
-<p>To start playing, connect to the server node <strong><%= @server %></strong>
-from an IEx session using the <strong>beam</strong> cookie. When starting the
-shell remember to provide a full name which includes your IP address.</p>
+<p><b>To start playing, connect to the server node <strong><%= @server %></strong>
+from an IEx/erl session using the <strong>beam</strong> cookie. When starting the
+shell remember to provide a full name which includes your IP address.</b></p>
 
 <pre>$ iex --name joe@192.168.0.10 --cookie beam
 iex> Node.connect :"<%= @server %>"
 true</pre>
+or
+<pre>$ erl -setcookie beam -name joe@192.168.0.10
+erl> net_adm:ping('<%= @server %>').
+pong</pre>
 
-<p>Now you can signup a new user by running</p>
+<p><b>Now you can signup a new user by running</b></p>
 
 <pre>iex> GenServer.call({:bo_server, :"<%= @server %>"}, {:signup, "joe"}) </pre>
+or
+<pre>erl> gen_server:call({bo_server, '<%= @server %>'}, {signup, <<"joe">>}). </pre>
 
-<p>You can fetch the current task with</p>
+<p><b>You can fetch the current task with</b></p>
 
 <pre>iex> GenServer.call({:bo_server, :"<%= @server %>"}, {:task, "joe"}) </pre>
+or
+<pre>erl> gen_server:call({bo_server, '<%= @server %>'}, {task, <<"joe">>}). </pre>
 
-<p>When you're done, you can submit your solution</p>
+<p><b>When you're done, you can submit your solution</b></p>
 
 <pre>iex> GenServer.call({:bo_server, :"<%= @server %>"}, {:submit, "joe", fn() -> :k end})</pre>
+or
+<pre>erl> gen_server:call({bo_server, '<%= @server %>'}, {submit, <<"joe">>, fun() -> k end}).</pre>
 
-<p>If you get stuck and want to skip the current task</p>
+<p><b>If you get stuck and want to skip the current task</b></p>
 
 <pre>iex> GenServer.call({:bo_server, :"<%= @server %>"}, {:skip, "joe"}) </pre>
+or
+<pre>erl> gen_server:call({bo_server, '<%= @server %>'}, {skip, <<"joe">>}). </pre>
 
-<p>And if you want to check your current score</p>
+<p><b>And if you want to check your current score</b></p>
 
 <pre>iex> GenServer.call({:bo_server, :"<%= @server %>"}, {:score, "joe"}) </pre>
+or
+<pre>erl> gen_server:call({bo_server, '<%= @server %>'}, {score, <<"joe">>}). </pre>
 
 <div class="funky-text">
   <h1><%= funky_text("The Game") %></h1>
